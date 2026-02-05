@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "payments-dashboard",
+    "name": "Payments Dashboard",
+    "shortDescription": "Reduced checkout errors by 37% using event-driven architecture.",
+    "tech": ["React", "Node", "PostgreSQL", "Stripe"],
+    "featured": true,
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com",
+    "year": "2024"
+  },
+  {
+    "slug": "api-gateway",
+    "name": "API Gateway & Rate Limiting",
+    "shortDescription": "Unified 12 microservices behind a single gateway with per-tenant rate limits.",
+    "tech": ["Go", "Redis", "Kubernetes"],
+    "featured": true,
+    "liveUrl": null,
+    "githubUrl": "https://github.com",
+    "year": "2024"
+  },
+  {
+    "slug": "design-system",
+    "name": "Design System & Component Library",
+    "shortDescription": "Shipped a shared component library used across 5 product teams.",
+    "tech": ["React", "TypeScript", "Storybook"],
+    "featured": true,
+    "liveUrl": null,
+    "githubUrl": "https://github.com",
+    "year": "2023"
+  }
+]

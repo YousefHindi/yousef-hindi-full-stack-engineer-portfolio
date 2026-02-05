@@ -1,0 +1,42 @@
+## Project Overview
+
+A shared React component library and design tokens used by 5 product teams. It started as a set of ad-hoc components and evolved into a single npm package with Storybook documentation and Figma alignment.
+
+## Problem
+
+- Each team had slightly different buttons, forms, and spacing; product felt inconsistent.
+- No single place to see all components or their usage.
+- Design and engineering were out of sync (Figma vs code).
+
+## Solution
+
+We built a design system with: (1) design tokens (colors, spacing, typography) in JS and CSS, (2) React components built on those tokens, (3) Storybook for isolation and docs, (4) a simple process for designers to export tokens from Figma. We chose React + TypeScript for type safety and Storybook for its adoption and composability.
+
+**Trade-offs:** We avoided a full design-to-code pipeline in v1; manual token sync was acceptable. We also kept the package in a monorepo so versioning stayed simple.
+
+## Implementation
+
+- **Tokens:** Exported from a single `tokens.ts` and corresponding CSS variables; components only reference tokens, not raw values.
+- **Components:** Built with accessibility in mind (ARIA, keyboard nav, focus states). We use a small state machine for complex components (e.g. combobox).
+- **Docs:** Each component has a Storybook story with usage notes and a link to the Figma frame.
+
+Example: button variant from tokens.
+
+```tsx
+const buttonVariants = {
+  primary: {
+    bg: tokens.color.accent,
+    color: tokens.color.accentForeground,
+  },
+  secondary: {
+    bg: tokens.color.surface,
+    border: `1px solid ${tokens.color.border}`,
+  },
+};
+```
+
+## Outcome
+
+- 5 teams now pull from one package; design consistency improved across the product.
+- New features typically use the library first; custom one-off UI is the exception.
+- **Learnings:** We’d add visual regression tests (e.g. Chromatic) and a lightweight contribution guide so more teams can propose new components.

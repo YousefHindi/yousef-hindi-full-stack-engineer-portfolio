@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --surface: #ffffff;
+  --surface-hover: #f5f5f5;
+  --muted: #737373;
+  --border: #e5e5e5;
+  --accent: #2563eb;
+  --accent-foreground: #ffffff;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --surface: #171717;
+  --surface-hover: #262626;
+  --muted: #a3a3a3;
+  --border: #262626;
+  --accent: #3b82f6;
+  --accent-foreground: #ffffff;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  * {
+    @apply border-border;
+  }
+}
+
+@layer utilities {
+  .transition-default {
+    @apply transition-all duration-200 ease-out;
+  }
+}
+
+/* Prose overrides for MDX */
+.prose pre {
+  @apply rounded-lg border border-border bg-surface px-4 py-3 font-mono text-sm;
+}
+.prose code {
+  @apply rounded bg-surface px-1.5 py-0.5 font-mono text-sm;
+}
+.prose pre code {
+  @apply bg-transparent p-0;
+}

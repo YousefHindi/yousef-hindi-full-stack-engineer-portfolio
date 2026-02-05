@@ -1,0 +1,42 @@
+## Project Overview
+
+A payments dashboard that gives finance and support teams real-time visibility into transactions, refunds, and disputes. It was built for a B2B SaaS company processing millions in monthly volume. The goal was to reduce manual reconciliation and cut down on checkout-related support tickets.
+
+## Problem
+
+- Checkout errors were hard to trace; support had to jump between Stripe, our DB, and logs.
+- No single source of truth for "why did this payment fail?"
+- Scale: we needed to support 50k+ monthly active users without slowing down the dashboard.
+
+## Solution
+
+We moved to an event-driven model: every payment lifecycle event (created, succeeded, failed, refunded) is published to an internal event bus. The dashboard subscribes to these events and keeps a read-optimized PostgreSQL store in sync. We chose PostgreSQL for consistency with the rest of the stack and for strong transactional guarantees when recording idempotent events.
+
+**Trade-offs:** We considered adding a real-time layer (e.g. WebSockets) for live updates but deferred it to keep the first version simple; polling every 30s was acceptable for the initial launch.
+
+## Implementation
+
+Key challenges:
+
+1. **Idempotency** – Payment webhooks can be retried. We use a `(event_id, source)` unique constraint and upsert so duplicate events don’t double-count.
+2. **Auth** – Dashboard access is role-based (admin, finance, support). We use short-lived JWTs and refresh via an HTTP-only cookie; the API validates on every request.
+
+Example: recording an event (simplified).
+
+```ts
+async function recordPaymentEvent(event: PaymentEvent) {
+  await db.insert(paymentEvents).values({
+    id: event.id,
+    source: 'stripe',
+    type: event.type,
+    payload: event.payload,
+    createdAt: new Date(event.created * 1000),
+  }).onConflictDoNothing();
+}
+```
+
+## Outcome
+
+- Checkout-related errors visible in the dashboard dropped by **37%** (support could self-serve).
+- We stayed under 200ms p95 for dashboard loads at 50k MAU.
+- **Learnings:** We’d add caching (e.g. Redis) for the most-hit aggregates next, and consider a dedicated analytics DB for long-range reporting.

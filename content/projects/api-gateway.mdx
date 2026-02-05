@@ -1,0 +1,39 @@
+## Project Overview
+
+A single API gateway in front of 12 internal microservices, with per-tenant rate limiting and centralized auth. Built for a platform where multiple product teams own different services but need a unified external API.
+
+## Problem
+
+- Each service had its own auth and rate limits; clients had to manage 12 different base URLs and keys.
+- No consistent way to enforce quotas per customer or to protect backends from burst traffic.
+- Constraints: sub-10ms added latency, must run in our existing Kubernetes cluster.
+
+## Solution
+
+We introduced a Go-based gateway that terminates TLS, validates API keys, and applies per-tenant rate limits using a Redis-backed sliding window. Backend services receive a signed internal header (user/tenant ID); they no longer handle API keys. We chose Go for low latency and strong concurrency, and Redis for fast, atomic counter updates.
+
+**Trade-offs:** We evaluated Envoy but needed custom logic (tenant resolution from API key + path); a small Go service gave us full control without the learning curve of Lua or Envoy’s config.
+
+## Implementation
+
+- **Rate limiting:** Sliding window in Redis with a single key per tenant (`ratelimit:{tenantId}`). We use a Lua script to keep the check-and-increment atomic.
+- **Auth:** API key → tenant/user lookup in PostgreSQL (cached in Redis). JWT is then created and passed to backends via internal header.
+- **Routing:** Path-based routing to backend services; health checks and timeouts configured per upstream.
+
+Example: rate limit check (conceptual).
+
+```go
+func (r *Limiter) Allow(ctx context.Context, tenantID string, limit int64) (bool, error) {
+  key := "ratelimit:" + tenantID
+  count, err := r.redis.Incr(ctx, key).Result()
+  if err != nil { return false, err }
+  if count == 1 { r.redis.Expire(ctx, key, time.Minute) }
+  return count <= limit, nil
+}
+```
+
+## Outcome
+
+- One API base URL and one API key per tenant; 12 backends unified.
+- p99 latency added by the gateway &lt; 8ms.
+- **Learnings:** We’d add rate-limit overrides per plan (e.g. enterprise) and optional request/response logging to object storage for debugging.

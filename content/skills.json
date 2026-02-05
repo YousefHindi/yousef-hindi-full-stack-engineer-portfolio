@@ -1,0 +1,25 @@
+{
+  "Frontend": [
+    { "name": "React / Next.js", "level": "Strong", "usedIn": ["Payments Dashboard", "Design System"] },
+    { "name": "State management", "level": "Strong", "usedIn": ["Payments Dashboard"] },
+    { "name": "Accessibility", "level": "Comfortable", "usedIn": ["Design System"] },
+    { "name": "Performance optimization", "level": "Comfortable", "usedIn": ["Payments Dashboard"] }
+  ],
+  "Backend": [
+    { "name": "Node.js", "level": "Strong", "usedIn": ["Payments Dashboard"] },
+    { "name": "REST / GraphQL", "level": "Strong", "usedIn": ["API Gateway", "Payments Dashboard"] },
+    { "name": "Auth & security", "level": "Comfortable", "usedIn": ["Payments Dashboard", "API Gateway"] },
+    { "name": "Background jobs", "level": "Comfortable", "usedIn": ["Payments Dashboard"] }
+  ],
+  "Data": [
+    { "name": "PostgreSQL", "level": "Strong", "usedIn": ["Payments Dashboard"] },
+    { "name": "Redis", "level": "Comfortable", "usedIn": ["API Gateway"] },
+    { "name": "Query optimization", "level": "Comfortable", "usedIn": ["Payments Dashboard"] }
+  ],
+  "DevOps": [
+    { "name": "Docker", "level": "Strong", "usedIn": ["API Gateway", "Payments Dashboard"] },
+    { "name": "CI/CD", "level": "Comfortable", "usedIn": ["API Gateway", "Design System"] },
+    { "name": "AWS / GCP", "level": "Comfortable", "usedIn": ["API Gateway"] },
+    { "name": "Monitoring", "level": "Comfortable", "usedIn": ["Payments Dashboard", "API Gateway"] }
+  ]
+}
