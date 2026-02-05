@@ -21,7 +21,10 @@ Static output is in the `out/` directory.
 
 ## Deploy to GitHub Pages
 
-1. In the repo **Settings → Pages**, set **Source** to **GitHub Actions**.
+1. **Enable Pages and set the source (required once):**
+   - Open the repo on GitHub → **Settings** → **Pages**.
+   - Under **Build and deployment**, set **Source** to **GitHub Actions** (not “Deploy from a branch”).
+   - Save. You don’t need to pick a branch; the workflow will deploy.
 2. Push to `main`; the workflow builds and deploys the `out/` directory.
 3. For a **project site** (e.g. `username.github.io/repo-name`), the workflow sets `NEXT_PUBLIC_BASE_PATH` to the repo name so routes and assets work. For a **user/org site** (`username.github.io`), remove or leave empty `NEXT_PUBLIC_BASE_PATH` in `.github/workflows/deploy.yml`.
 
