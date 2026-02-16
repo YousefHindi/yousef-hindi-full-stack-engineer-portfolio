@@ -4,6 +4,7 @@ import { Card } from '@/components/Card';
 import { Section } from '@/components/Section';
 import { CodeBlock } from '@/components/CodeBlock';
 import { getFeaturedProjects } from '@/lib/projects';
+import { ProfileAvatar } from '@/components/ProfileAvatar';
 
 const heroSnippet = `const deploy = async () => {
   await build();
@@ -20,9 +21,16 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Yousef Hindi
-              </h1>
+              <div className="mb-6 flex items-center gap-4">
+                <ProfileAvatar
+                  src="/Me.jpg"
+                  alt="Yousef Hindi profile photo"
+                  initials="YH"
+                />
+                <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                  Yousef Hindi
+                </h1>
+              </div>
               <p className="mt-4 text-xl text-foreground">
                 Full-Stack Engineer building scalable, user-focused products
               </p>
