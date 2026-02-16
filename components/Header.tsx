@@ -36,7 +36,7 @@ export function Header() {
               className={cn(
                 'px-3 py-2 rounded-md text-sm font-medium transition-default',
                 pathname === href
-                  ? 'bg-surface-hover text-foreground'
+                  ? 'bg-accent text-accent-foreground'
                   : 'text-muted hover:text-foreground hover:bg-surface-hover'
               )}
             >
@@ -83,7 +83,9 @@ export function Header() {
                   href={href}
                   className={cn(
                     'block px-3 py-2 rounded-md text-sm font-medium transition-default',
-                    pathname === href ? 'bg-surface-hover text-foreground' : 'text-muted hover:text-foreground hover:bg-surface-hover'
+                    pathname === href
+                      ? 'bg-accent text-accent-foreground'
+                      : 'text-muted hover:text-foreground hover:bg-surface-hover'
                   )}
                   onClick={() => setMobileOpen(false)}
                 >
