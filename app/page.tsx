@@ -26,6 +26,7 @@ export default function HomePage() {
                   src="/Me.jpg"
                   alt="Yousef Hindi profile photo"
                   initials="YH"
+                  basePath={process.env.NEXT_PUBLIC_BASE_PATH ? `/${process.env.NEXT_PUBLIC_BASE_PATH}` : ''}
                 />
                 <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                   Yousef Hindi
