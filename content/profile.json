@@ -3,7 +3,7 @@
   "headline": "Full Stack Engineer | React, Node.js, TypeScript, Python | AI-Assisted Development | AWS • Docker • API Integration",
   "shortHeadline": "Full-stack engineer building scalable, accessible web platforms",
   "location": "Amman, Jordan",
-  "summary": "Full-stack engineer in Amman specializing in scalable, secure, and accessible web platforms. I currently work as a Software Quality Engineer at Optimum Partners Global, with a focus on React, testing, and WCAG-compliant UX.",
+  "summary": "Full-stack engineer in Amman specializing in scalable, secure, and accessible web platforms. I currently work as a Full Stack Engineer at Optimum Partners Global, with a focus on React, testing, and WCAG-compliant UX.",
   "about": [
     {
       "title": "How I think about engineering",
@@ -20,7 +20,7 @@
   ],
   "experience": [
     {
-      "title": "Software Quality Engineer",
+      "title": "Full Stack Engineer",
       "org": "Optimum Partners Global",
       "dates": "Sep 2024 – Present",
       "location": "Amman, Jordan",
