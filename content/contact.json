@@ -1,0 +1,8 @@
+{
+  "email": "hello@yousefhindi.com",
+  "links": [
+    { "label": "GitHub", "href": "https://github.com" },
+    { "label": "LinkedIn", "href": "https://linkedin.com" },
+    { "label": "Calendly", "href": "https://calendly.com" }
+  ]
+}

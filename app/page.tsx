@@ -1,9 +1,13 @@
+import { AboutPreview } from '@/components/AboutPreview';
 import { Button } from '@/components/Button';
 import { CodeBlock } from '@/components/CodeBlock';
+import { ContactPreview } from '@/components/ContactPreview';
 import { ImpactSection } from '@/components/ImpactSection';
 import { ProfileAvatar } from '@/components/ProfileAvatar';
 import { ProjectGrid } from '@/components/ProjectCard';
 import { Section } from '@/components/Section';
+import { SkillsPreview } from '@/components/SkillsPreview';
+import { getContactLink } from '@/lib/contact';
 import { getFeaturedProjects, hasProjects } from '@/lib/projects';
 
 const heroSnippet = `const deploy = async () => {
@@ -13,10 +17,10 @@ const heroSnippet = `const deploy = async () => {
 
 export default function HomePage() {
   const featured = getFeaturedProjects();
+  const github = getContactLink('GitHub');
 
   return (
     <>
-      {/* Hero */}
       <section className="py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
@@ -44,9 +48,11 @@ export default function HomePage() {
                     View Projects
                   </Button>
                 )}
-                <Button href="https://github.com" variant="secondary" external>
-                  GitHub
-                </Button>
+                {github && (
+                  <Button href={github.href} variant="secondary" external>
+                    GitHub
+                  </Button>
+                )}
                 <Button href="/resume" variant="ghost">
                   Resume
                 </Button>
@@ -78,7 +84,10 @@ export default function HomePage() {
         </Section>
       )}
 
+      <AboutPreview />
+      <SkillsPreview />
       <ImpactSection />
+      <ContactPreview />
     </>
   );
 }

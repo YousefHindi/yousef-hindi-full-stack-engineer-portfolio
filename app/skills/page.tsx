@@ -1,6 +1,5 @@
-import { Section } from '@/components/Section';
-import { skillsByCategory, categoryOrder } from '@/lib/skills';
-import Link from 'next/link';
+import { SkillCard } from '@/components/SkillCard';
+import { categoryOrder, skillsByCategory } from '@/lib/skills';
 
 export const metadata = {
   title: 'Skills & Stack | Yousef Hindi',
@@ -24,35 +23,11 @@ export default function SkillsPage() {
             if (!skills?.length) return null;
             return (
               <section key={category}>
-                <h2 className="text-xl font-semibold text-foreground mb-6">{category}</h2>
+                <h2 className="mb-6 text-xl font-semibold text-foreground">{category}</h2>
                 <ul className="grid gap-4 sm:grid-cols-2">
                   {skills.map((skill) => (
-                    <li
-                      key={skill.name}
-                      className="rounded-xl border border-border bg-surface p-4 shadow-sm"
-                    >
-                      <div className="flex flex-wrap items-center justify-between gap-2">
-                        <span className="font-medium text-foreground">{skill.name}</span>
-                        <span className="text-xs font-medium text-muted">
-                          {skill.level}
-                        </span>
-                      </div>
-                      {skill.usedIn?.length > 0 && (
-                        <p className="mt-2 text-sm text-muted">
-                          Used in:{' '}
-                          {skill.usedIn.map((name, i) => (
-                            <span key={name}>
-                              <Link
-                                href="/projects"
-                                className="text-accent hover:underline"
-                              >
-                                {name}
-                              </Link>
-                              {i < skill.usedIn.length - 1 ? ', ' : ''}
-                            </span>
-                          ))}
-                        </p>
-                      )}
+                    <li key={skill.name}>
+                      <SkillCard skill={skill} />
                     </li>
                   ))}
                 </ul>

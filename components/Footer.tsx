@@ -21,7 +21,7 @@ export function Footer() {
             </ul>
           </nav>
           <p className="text-sm text-muted">
-            &copy; {year} Yousef Hindi. Built with Next.js.
+            &copy; {year} Yousef Hindi.
           </p>
         </div>
       </div>
