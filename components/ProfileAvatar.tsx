@@ -7,6 +7,7 @@ type ProfileAvatarProps = {
   alt?: string;
   initials: string;
   sizeClassName?: string;
+  basePath?: string;
 };
 
 export function ProfileAvatar({
@@ -14,9 +15,12 @@ export function ProfileAvatar({
   alt = 'Profile photo',
   initials,
   sizeClassName = 'h-20 w-20',
+  basePath,
 }: ProfileAvatarProps) {
   const [status, setStatus] = useState<'idle' | 'loaded' | 'error'>('idle');
-  const hasImage = Boolean(src) && status !== 'error';
+  const resolvedSrc =
+    src && src.startsWith('/') && basePath ? `${basePath}${src}` : src;
+  const hasImage = Boolean(resolvedSrc) && status !== 'error';
   const showImage = hasImage && status === 'loaded';
 
   return (
@@ -25,7 +29,7 @@ export function ProfileAvatar({
     >
       {hasImage && (
         <img
-          src={src}
+          src={resolvedSrc}
           alt={alt}
           className={`h-full w-full object-cover transition-opacity duration-300 ${
             showImage ? 'opacity-100' : 'opacity-0'
