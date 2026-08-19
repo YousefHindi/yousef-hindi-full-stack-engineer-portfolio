@@ -1,5 +1,6 @@
 import { TextLink } from '@/components/TextLink';
 import { getNavLinks } from '@/lib/nav';
+import { profile } from '@/lib/profile';
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -21,7 +22,7 @@ export function Footer() {
             </ul>
           </nav>
           <p className="text-sm text-muted">
-            &copy; {year} Yousef Hindi.
+            &copy; {year} {profile.name}.
           </p>
         </div>
       </div>

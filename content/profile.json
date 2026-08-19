@@ -1,0 +1,115 @@
+{
+  "name": "Yousef Hindi",
+  "headline": "Full Stack Engineer | React, Node.js, TypeScript, Python | AI-Assisted Development | AWS • Docker • API Integration",
+  "shortHeadline": "Full-stack engineer building scalable, accessible web platforms",
+  "location": "Amman, Jordan",
+  "summary": "Full-stack engineer in Amman specializing in scalable, secure, and accessible web platforms. I currently work as a Full Stack Engineer at Optimum Partners Global, with a focus on React, testing, and WCAG-compliant UX.",
+  "about": [
+    {
+      "title": "How I think about engineering",
+      "body": "I care about accessibility, reliability, and shipping work you can verify. At Optimum Partners I raised an accessibility score to 100% against WCAG, and I lean on unit tests, Playwright, and API checks so quality is part of the build, not a pass at the end."
+    },
+    {
+      "title": "What I enjoy building",
+      "body": "Responsive web apps and reusable component systems in React and Vue, plus the tests and diagrams that make those systems easy to hand off. I also use AI-assisted workflows (Cursor, Claude, and similar tools) to move faster without skipping fundamentals."
+    },
+    {
+      "title": "Outside work",
+      "body": "I perform stand-up with Amman Comedy Club, teach English and improv, and keep a few creative side projects going. That mix of teaching and comedy is how I practice clear communication."
+    }
+  ],
+  "experience": [
+    {
+      "title": "Full Stack Engineer",
+      "org": "Optimum Partners Global",
+      "dates": "Sep 2024 – Present",
+      "location": "Amman, Jordan",
+      "summary": "Build responsive, accessible web apps with React, Vue, Tailwind, and Playwright. Improved accessibility to a 100% WCAG score, added reusable components and E2E coverage, and used AI-assisted tooling to speed up delivery while keeping cybersecurity practices in the lifecycle."
+    },
+    {
+      "title": "English Teacher",
+      "org": "Freelance",
+      "dates": "Mar 2022 – Present",
+      "location": "Amman, Jordan",
+      "summary": "Design and deliver lessons in reading, writing, listening, and speaking, with personalized instruction and clear learning goals."
+    },
+    {
+      "title": "Comedian",
+      "org": "Amman Comedy Club",
+      "dates": "Oct 2021 – Present",
+      "location": "Amman, Jordan",
+      "summary": "Stand-up comedian, writer, and performer; create original shows and contribute to Amman Comedy Club as a social enterprise for comedy in Jordan."
+    },
+    {
+      "title": "Improv Trainer",
+      "org": "American Community School, Amman",
+      "dates": "Dec 2024 – Jun 2025",
+      "location": "Amman, Jordan",
+      "summary": "Led improv workshops on creativity, communication, and teamwork, including sessions tailored for kids."
+    },
+    {
+      "title": "Arabic Teacher",
+      "org": "Freelance",
+      "dates": "May 2023 – Dec 2023",
+      "location": "Amman, Jordan",
+      "summary": "Personalized Arabic instruction in reading, writing, listening, and speaking, with a focus on fluency and cultural context."
+    },
+    {
+      "title": "Information Communication Technology Teacher",
+      "org": "Universal Schools",
+      "dates": "Oct 2023 – Jan 2024",
+      "location": "Amman, Jordan",
+      "summary": "Taught foundational computer skills, coding, and digital literacy with hands-on lesson plans."
+    },
+    {
+      "title": "Receptionist",
+      "org": "Hotel Arabesque",
+      "dates": "Apr 2023 – Sep 2023",
+      "location": "Amman, Jordan",
+      "summary": "Guest services, reservations, and coordination across hotel teams."
+    },
+    {
+      "title": "Motion Graphic Artist",
+      "org": "Circle4Media",
+      "dates": "Oct 2022 – Mar 2023",
+      "location": "Amman, Jordan",
+      "summary": "Motion graphics and animation for multimedia projects, aligned with client branding."
+    },
+    {
+      "title": "Data Analyst Intern",
+      "org": "Luminus Technical University College",
+      "dates": "Jun 2022 – Sep 2022",
+      "location": "Amman, Jordan",
+      "summary": "Processed employment-related datasets, reports, and visualizations to support decision-making."
+    },
+    {
+      "title": "English Translator",
+      "org": "Smart Glint",
+      "dates": "Jan 2021 – Feb 2022",
+      "location": "Amman, Jordan",
+      "summary": "English–Arabic translation for technical, marketing, and web content."
+    },
+    {
+      "title": "Chatbot Developer",
+      "org": "JOHUD",
+      "dates": "Sep 2019 – Dec 2020",
+      "location": "Amman, Jordan",
+      "summary": "Designed conversational flows, API integrations, and NLU improvements for chatbot experiences."
+    },
+    {
+      "title": "Software Programming Instructor",
+      "org": "JOHUD",
+      "dates": "Jan 2018 – Aug 2019",
+      "location": "Amman, Jordan",
+      "summary": "Taught programming fundamentals with Kano Code and Small Basic through hands-on projects and mentorship."
+    }
+  ],
+  "education": [
+    {
+      "title": "Higher National Diploma, Artificial Intelligence",
+      "org": "Luminus Technical University College (Pearson)",
+      "dates": "2021 – 2024",
+      "summary": "Pearson HND in Computing (Intelligent Systems) at Abdul Aziz Al Ghurair School of Advanced Computing. Focus on machine learning, neural networks, and applied AI. Activities: AI Club, coding competitions, Cybersecurity Club, Cloud Computing Club."
+    }
+  ]
+}

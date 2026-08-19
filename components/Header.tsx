@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { getNavLinks } from '@/lib/nav';
+import { profile } from '@/lib/profile';
 import { ThemeToggle } from '@/components/ThemeToggle';
 
 function isActivePath(pathname: string, href: string) {
@@ -25,7 +26,7 @@ export function Header() {
           href="/"
           className="text-lg font-semibold text-foreground hover:text-accent transition-default"
         >
-          Yousef Hindi
+          {profile.name}
         </Link>
 
         <nav className="hidden md:flex items-center gap-1" aria-label="Main">

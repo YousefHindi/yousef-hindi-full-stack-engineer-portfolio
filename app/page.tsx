@@ -8,6 +8,7 @@ import { ProjectGrid } from '@/components/ProjectCard';
 import { Section } from '@/components/Section';
 import { SkillsPreview } from '@/components/SkillsPreview';
 import { getContactLink } from '@/lib/contact';
+import { profile } from '@/lib/profile';
 import { getFeaturedProjects, hasProjects } from '@/lib/projects';
 
 const heroSnippet = `const deploy = async () => {
@@ -18,6 +19,7 @@ const heroSnippet = `const deploy = async () => {
 export default function HomePage() {
   const featured = getFeaturedProjects();
   const github = getContactLink('GitHub');
+  const linkedin = getContactLink('LinkedIn');
 
   return (
     <>
@@ -28,20 +30,15 @@ export default function HomePage() {
               <div className="mb-6 flex items-center gap-4">
                 <ProfileAvatar
                   src="/Me.jpg"
-                  alt="Yousef Hindi profile photo"
+                  alt={`${profile.name} profile photo`}
                   initials="YH"
                 />
                 <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                  Yousef Hindi
+                  {profile.name}
                 </h1>
               </div>
-              <p className="mt-4 text-xl text-foreground">
-                Full-Stack Engineer building scalable, user-focused products
-              </p>
-              <p className="mt-3 text-muted max-w-prose">
-                I focus on clear problem-solving and maintainable systems—from API design to
-                front-end UX. I care about impact you can measure and code you can hand off.
-              </p>
+              <p className="mt-4 text-xl text-foreground">{profile.shortHeadline}</p>
+              <p className="mt-3 max-w-prose text-muted">{profile.summary}</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 {hasProjects() && (
                   <Button href="/projects" variant="primary">
@@ -51,6 +48,11 @@ export default function HomePage() {
                 {github && (
                   <Button href={github.href} variant="secondary" external>
                     GitHub
+                  </Button>
+                )}
+                {linkedin && (
+                  <Button href={linkedin.href} variant="secondary" external>
+                    LinkedIn
                   </Button>
                 )}
                 <Button href="/resume" variant="ghost">

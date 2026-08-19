@@ -1,25 +1,24 @@
 {
   "Frontend": [
-    { "name": "React / Next.js", "level": "Strong", "usedIn": [] },
-    { "name": "State management", "level": "Strong", "usedIn": [] },
-    { "name": "Accessibility", "level": "Comfortable", "usedIn": [] },
-    { "name": "Performance optimization", "level": "Comfortable", "usedIn": [] }
+    { "name": "React", "level": "Strong", "usedIn": [] },
+    { "name": "Vue.js", "level": "Strong", "usedIn": [] },
+    { "name": "TypeScript", "level": "Strong", "usedIn": [] },
+    { "name": "Tailwind CSS", "level": "Strong", "usedIn": [] },
+    { "name": "Accessibility / WCAG", "level": "Strong", "usedIn": [] }
   ],
   "Backend": [
     { "name": "Node.js", "level": "Strong", "usedIn": [] },
-    { "name": "REST / GraphQL", "level": "Strong", "usedIn": [] },
-    { "name": "Auth & security", "level": "Comfortable", "usedIn": [] },
-    { "name": "Background jobs", "level": "Comfortable", "usedIn": [] }
+    { "name": "Python", "level": "Comfortable", "usedIn": [] },
+    { "name": "API integration", "level": "Strong", "usedIn": [] }
   ],
-  "Data": [
-    { "name": "PostgreSQL", "level": "Strong", "usedIn": [] },
-    { "name": "Redis", "level": "Comfortable", "usedIn": [] },
-    { "name": "Query optimization", "level": "Comfortable", "usedIn": [] }
+  "Quality": [
+    { "name": "Playwright", "level": "Strong", "usedIn": [] },
+    { "name": "Unit testing", "level": "Comfortable", "usedIn": [] },
+    { "name": "Postman", "level": "Comfortable", "usedIn": [] }
   ],
-  "DevOps": [
-    { "name": "Docker", "level": "Strong", "usedIn": [] },
-    { "name": "CI/CD", "level": "Comfortable", "usedIn": [] },
-    { "name": "AWS / GCP", "level": "Comfortable", "usedIn": [] },
-    { "name": "Monitoring", "level": "Comfortable", "usedIn": [] }
+  "Cloud & tooling": [
+    { "name": "AWS", "level": "Comfortable", "usedIn": [] },
+    { "name": "Docker", "level": "Comfortable", "usedIn": [] },
+    { "name": "AI-assisted development", "level": "Strong", "usedIn": [] }
   ]
 }

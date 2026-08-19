@@ -4,7 +4,7 @@ import { categoryOrder, skillsByCategory } from '@/lib/skills';
 export const metadata = {
   title: 'Skills & Stack | Yousef Hindi',
   description:
-    'Frontend, backend, data, and DevOps—grouped by purpose with real project usage.',
+    'Frontend, backend, quality, and cloud tooling grouped by how I use them.',
 };
 
 export default function SkillsPage() {
