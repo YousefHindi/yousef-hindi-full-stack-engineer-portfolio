@@ -1,5 +1,6 @@
 import { Button } from '@/components/Button';
 import { CodeBlock } from '@/components/CodeBlock';
+import { ImpactSection } from '@/components/ImpactSection';
 import { ProfileAvatar } from '@/components/ProfileAvatar';
 import { ProjectGrid } from '@/components/ProjectCard';
 import { Section } from '@/components/Section';
@@ -77,26 +78,7 @@ export default function HomePage() {
         </Section>
       )}
 
-      {/* Credibility */}
-      <Section title="Impact" id="credibility" className="bg-surface">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="rounded-lg border border-border bg-background p-6 text-center">
-            <p className="text-2xl font-semibold text-foreground">50k+</p>
-            <p className="text-sm text-muted">users supported at scale</p>
-          </div>
-          <div className="rounded-lg border border-border bg-background p-6 text-center">
-            <p className="text-2xl font-semibold text-foreground">99.9%</p>
-            <p className="text-sm text-muted">uptime on critical services</p>
-          </div>
-          <div className="rounded-lg border border-border bg-background p-6 text-center sm:col-span-2 lg:col-span-1">
-            <p className="text-sm text-muted italic">
-              &ldquo;Clear communication and reliable delivery. Would work with again.&rdquo;
-            </p>
-            <p className="mt-2 text-xs text-muted">— Team lead, previous engagement</p>
-          </div>
-        </div>
-        {/* Placeholder for company logos: add images to public/ and use next/image */}
-      </Section>
+      <ImpactSection />
     </>
   );
 }
