@@ -4,15 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { getNavLinks } from '@/lib/nav';
 import { ThemeToggle } from '@/components/ThemeToggle';
-
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/skills', label: 'Skills & Stack' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
-];
 
 function isActivePath(pathname: string, href: string) {
   const current = pathname.replace(/\/+$/, '') || '/';
@@ -23,6 +16,7 @@ function isActivePath(pathname: string, href: string) {
 export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navLinks = getNavLinks('header');
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">

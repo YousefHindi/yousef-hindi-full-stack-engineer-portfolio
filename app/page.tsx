@@ -3,7 +3,7 @@ import { CodeBlock } from '@/components/CodeBlock';
 import { ProfileAvatar } from '@/components/ProfileAvatar';
 import { ProjectGrid } from '@/components/ProjectCard';
 import { Section } from '@/components/Section';
-import { getFeaturedProjects } from '@/lib/projects';
+import { getFeaturedProjects, hasProjects } from '@/lib/projects';
 
 const heroSnippet = `const deploy = async () => {
   await build();
@@ -38,9 +38,11 @@ export default function HomePage() {
                 front-end UX. I care about impact you can measure and code you can hand off.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button href="/projects" variant="primary">
-                  View Projects
-                </Button>
+                {hasProjects() && (
+                  <Button href="/projects" variant="primary">
+                    View Projects
+                  </Button>
+                )}
                 <Button href="https://github.com" variant="secondary" external>
                   GitHub
                 </Button>
@@ -62,15 +64,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Projects */}
-      <Section title="Featured Projects" id="projects">
-        <ProjectGrid projects={featured} showActions />
-        <div className="mt-8 text-center">
-          <Button href="/projects" variant="secondary">
-            View all projects
-          </Button>
-        </div>
-      </Section>
+      {featured.length > 0 && (
+        <Section title="Featured Projects" id="projects">
+          <ProjectGrid projects={featured} showActions />
+          {hasProjects() && (
+            <div className="mt-8 text-center">
+              <Button href="/projects" variant="secondary">
+                View all projects
+              </Button>
+            </div>
+          )}
+        </Section>
+      )}
 
       {/* Credibility */}
       <Section title="Impact" id="credibility" className="bg-surface">
