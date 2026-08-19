@@ -52,6 +52,8 @@ export function ProjectGrid({
   projects: ProjectMeta[];
   showActions?: boolean;
 }) {
+  if (projects.length === 0) return null;
+
   return (
     <ul className="m-0 grid list-none gap-6 p-0 sm:grid-cols-2 lg:grid-cols-3">
       {projects.map((project) => (

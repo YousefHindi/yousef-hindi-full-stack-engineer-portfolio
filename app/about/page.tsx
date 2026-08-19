@@ -1,4 +1,4 @@
-import { Section } from '@/components/Section';
+import { aboutIntro } from '@/lib/about';
 
 export const metadata = {
   title: 'About | Yousef Hindi',
@@ -13,10 +13,7 @@ export default function AboutPage() {
         <h1 className="text-3xl font-bold tracking-tight text-foreground">About</h1>
         <div className="mt-10 max-w-prose space-y-8 text-muted">
           <p className="text-foreground leading-relaxed">
-            I’m a full-stack engineer who cares about building systems that are easy to
-            maintain and hard to break. I like to understand the problem before reaching
-            for a solution, and I prefer clarity over cleverness in code and in
-            communication.
+            {aboutIntro}
           </p>
           <section>
             <h2 className="text-lg font-semibold text-foreground mb-2">

@@ -13,6 +13,10 @@ export type ProjectMeta = {
 
 export const projects: ProjectMeta[] = projectsData as ProjectMeta[];
 
+export function hasProjects(): boolean {
+  return projects.length > 0;
+}
+
 export function getProjectBySlug(slug: string): ProjectMeta | undefined {
   return projects.find((p) => p.slug === slug);
 }

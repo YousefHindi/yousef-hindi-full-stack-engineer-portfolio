@@ -1,16 +1,9 @@
-import Link from 'next/link';
-
-const links = [
-  { href: '/', label: 'Home' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/skills', label: 'Skills' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
-  { href: '/resume', label: 'Resume' },
-];
+import { TextLink } from '@/components/TextLink';
+import { getNavLinks } from '@/lib/nav';
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const links = getNavLinks('footer');
 
   return (
     <footer className="border-t border-border bg-surface mt-auto">
@@ -20,18 +13,15 @@ export function Footer() {
             <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
               {links.map(({ href, label }) => (
                 <li key={href}>
-                  <Link
-                    href={href}
-                    className="text-sm text-muted hover:text-foreground transition-default"
-                  >
+                  <TextLink href={href} variant="muted" className="text-sm">
                     {label}
-                  </Link>
+                  </TextLink>
                 </li>
               ))}
             </ul>
           </nav>
           <p className="text-sm text-muted">
-            &copy; {year} Yousef Hindi. Built with Next.js.
+            &copy; {year} Yousef Hindi.
           </p>
         </div>
       </div>

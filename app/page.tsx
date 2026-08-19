@@ -1,9 +1,14 @@
+import { AboutPreview } from '@/components/AboutPreview';
 import { Button } from '@/components/Button';
 import { CodeBlock } from '@/components/CodeBlock';
+import { ContactPreview } from '@/components/ContactPreview';
+import { ImpactSection } from '@/components/ImpactSection';
 import { ProfileAvatar } from '@/components/ProfileAvatar';
 import { ProjectGrid } from '@/components/ProjectCard';
 import { Section } from '@/components/Section';
-import { getFeaturedProjects } from '@/lib/projects';
+import { SkillsPreview } from '@/components/SkillsPreview';
+import { getContactLink } from '@/lib/contact';
+import { getFeaturedProjects, hasProjects } from '@/lib/projects';
 
 const heroSnippet = `const deploy = async () => {
   await build();
@@ -12,10 +17,10 @@ const heroSnippet = `const deploy = async () => {
 
 export default function HomePage() {
   const featured = getFeaturedProjects();
+  const github = getContactLink('GitHub');
 
   return (
     <>
-      {/* Hero */}
       <section className="py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
@@ -38,12 +43,16 @@ export default function HomePage() {
                 front-end UX. I care about impact you can measure and code you can hand off.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button href="/projects" variant="primary">
-                  View Projects
-                </Button>
-                <Button href="https://github.com" variant="secondary" external>
-                  GitHub
-                </Button>
+                {hasProjects() && (
+                  <Button href="/projects" variant="primary">
+                    View Projects
+                  </Button>
+                )}
+                {github && (
+                  <Button href={github.href} variant="secondary" external>
+                    GitHub
+                  </Button>
+                )}
                 <Button href="/resume" variant="ghost">
                   Resume
                 </Button>
@@ -62,36 +71,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Projects */}
-      <Section title="Featured Projects" id="projects">
-        <ProjectGrid projects={featured} showActions />
-        <div className="mt-8 text-center">
-          <Button href="/projects" variant="secondary">
-            View all projects
-          </Button>
-        </div>
-      </Section>
+      {featured.length > 0 && (
+        <Section title="Featured Projects" id="projects">
+          <ProjectGrid projects={featured} showActions />
+          {hasProjects() && (
+            <div className="mt-8 text-center">
+              <Button href="/projects" variant="secondary">
+                View all projects
+              </Button>
+            </div>
+          )}
+        </Section>
+      )}
 
-      {/* Credibility */}
-      <Section title="Impact" id="credibility" className="bg-surface">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="rounded-lg border border-border bg-background p-6 text-center">
-            <p className="text-2xl font-semibold text-foreground">50k+</p>
-            <p className="text-sm text-muted">users supported at scale</p>
-          </div>
-          <div className="rounded-lg border border-border bg-background p-6 text-center">
-            <p className="text-2xl font-semibold text-foreground">99.9%</p>
-            <p className="text-sm text-muted">uptime on critical services</p>
-          </div>
-          <div className="rounded-lg border border-border bg-background p-6 text-center sm:col-span-2 lg:col-span-1">
-            <p className="text-sm text-muted italic">
-              &ldquo;Clear communication and reliable delivery. Would work with again.&rdquo;
-            </p>
-            <p className="mt-2 text-xs text-muted">— Team lead, previous engagement</p>
-          </div>
-        </div>
-        {/* Placeholder for company logos: add images to public/ and use next/image */}
-      </Section>
+      <AboutPreview />
+      <SkillsPreview />
+      <ImpactSection />
+      <ContactPreview />
     </>
   );
 }

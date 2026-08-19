@@ -7,6 +7,7 @@ type ButtonProps = {
   variant?: 'primary' | 'secondary' | 'ghost';
   className?: string;
   external?: boolean;
+  onClick?: () => void;
 };
 
 const base =
@@ -24,6 +25,7 @@ export function Button({
   variant = 'primary',
   className,
   external,
+  onClick,
 }: ButtonProps) {
   const classes = cn(base, variants[variant], className);
 
@@ -42,5 +44,9 @@ export function Button({
     );
   }
 
-  return <button type="button" className={classes}>{children}</button>;
+  return (
+    <button type="button" className={classes} onClick={onClick}>
+      {children}
+    </button>
+  );
 }
