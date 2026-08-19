@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { Card } from '@/components/Card';
+import { ProjectGrid } from '@/components/ProjectCard';
 import { projects } from '@/lib/projects';
 
 export const metadata = {
@@ -16,25 +15,9 @@ export default function ProjectsPage() {
           Case studies with clear problem → solution → outcome. Each includes tech choices,
           trade-offs, and what I’d do differently next.
         </p>
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <li key={project.slug}>
-              <Card href={`/projects/${project.slug}`} title={project.name}>
-                <p className="text-sm text-muted mb-4">{project.shortDescription}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="inline-flex items-center rounded-md bg-surface-hover px-2.5 py-0.5 text-xs font-medium text-muted"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </Card>
-            </li>
-          ))}
-        </ul>
+        <div className="mt-10">
+          <ProjectGrid projects={projects} />
+        </div>
       </div>
     </div>
   );

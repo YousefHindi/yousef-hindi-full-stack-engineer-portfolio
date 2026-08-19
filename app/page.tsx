@@ -1,10 +1,9 @@
-import Link from 'next/link';
 import { Button } from '@/components/Button';
-import { Card } from '@/components/Card';
-import { Section } from '@/components/Section';
 import { CodeBlock } from '@/components/CodeBlock';
-import { getFeaturedProjects } from '@/lib/projects';
 import { ProfileAvatar } from '@/components/ProfileAvatar';
+import { ProjectGrid } from '@/components/ProjectCard';
+import { Section } from '@/components/Section';
+import { getFeaturedProjects } from '@/lib/projects';
 
 const heroSnippet = `const deploy = async () => {
   await build();
@@ -65,53 +64,7 @@ export default function HomePage() {
 
       {/* Featured Projects */}
       <Section title="Featured Projects" id="projects">
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((project) => (
-            <li key={project.slug}>
-              <Card href={`/projects/${project.slug}`} title={project.name}>
-                <p className="text-sm text-muted mb-4">{project.shortDescription}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="inline-flex items-center rounded-md bg-surface-hover px-2.5 py-0.5 text-xs font-medium text-muted"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-3 text-sm">
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="font-medium text-accent hover:underline"
-                  >
-                    Case study
-                  </Link>
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted hover:text-foreground"
-                    >
-                      Demo
-                    </a>
-                  )}
-                  {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted hover:text-foreground"
-                    >
-                      GitHub
-                    </a>
-                  )}
-                </div>
-              </Card>
-            </li>
-          ))}
-        </ul>
+        <ProjectGrid projects={featured} showActions />
         <div className="mt-8 text-center">
           <Button href="/projects" variant="secondary">
             View all projects
