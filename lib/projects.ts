@@ -28,3 +28,14 @@ export function getFeaturedProjects(): ProjectMeta[] {
 export function getAllSlugs(): string[] {
   return projects.map((p) => p.slug);
 }
+
+/** Static export requires at least one path for `/projects/[slug]`. */
+export const STATIC_EXPORT_PLACEHOLDER_SLUG = '_';
+
+export function getStaticProjectParams(): { slug: string }[] {
+  const slugs = getAllSlugs();
+  if (slugs.length === 0) {
+    return [{ slug: STATIC_EXPORT_PLACEHOLDER_SLUG }];
+  }
+  return slugs.map((slug) => ({ slug }));
+}

@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
-import { getProjectBySlug, getAllSlugs } from '@/lib/projects';
+import { getProjectBySlug, getStaticProjectParams } from '@/lib/projects';
 import { getMdxContent } from '@/lib/mdx';
 import { CodeBlock } from '@/components/CodeBlock';
 
@@ -32,9 +32,11 @@ const mdxComponents = {
   },
 };
 
-export async function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+export function generateStaticParams() {
+  return getStaticProjectParams();
 }
+
+export const dynamicParams = false;
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
