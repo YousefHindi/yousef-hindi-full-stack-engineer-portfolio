@@ -14,6 +14,12 @@ const navLinks = [
   { href: '/contact', label: 'Contact' },
 ];
 
+function isActivePath(pathname: string, href: string) {
+  const current = pathname.replace(/\/+$/, '') || '/';
+  const target = href.replace(/\/+$/, '') || '/';
+  return current === target;
+}
+
 export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -35,7 +41,7 @@ export function Header() {
               href={href}
               className={cn(
                 'px-3 py-2 rounded-md text-sm font-medium transition-default',
-                pathname === href
+                isActivePath(pathname, href)
                   ? 'bg-accent text-accent-foreground'
                   : 'text-muted hover:text-foreground hover:bg-surface-hover'
               )}
@@ -83,7 +89,7 @@ export function Header() {
                   href={href}
                   className={cn(
                     'block px-3 py-2 rounded-md text-sm font-medium transition-default',
-                    pathname === href
+                    isActivePath(pathname, href)
                       ? 'bg-accent text-accent-foreground'
                       : 'text-muted hover:text-foreground hover:bg-surface-hover'
                   )}

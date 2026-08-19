@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { withBasePath } from '@/lib/utils';
 
 type ProfileAvatarProps = {
   src?: string;
   alt?: string;
   initials: string;
   sizeClassName?: string;
-  basePath?: string;
 };
 
 export function ProfileAvatar({
@@ -15,27 +15,21 @@ export function ProfileAvatar({
   alt = 'Profile photo',
   initials,
   sizeClassName = 'h-20 w-20',
-  basePath,
 }: ProfileAvatarProps) {
-  const [status, setStatus] = useState<'idle' | 'loaded' | 'error'>('idle');
-  const resolvedSrc =
-    src && src.startsWith('/') && basePath ? `${basePath}${src}` : src;
-  const hasImage = Boolean(resolvedSrc) && status !== 'error';
-  const showImage = hasImage && status === 'loaded';
+  const [failed, setFailed] = useState(false);
+  const resolvedSrc = src ? withBasePath(src) : undefined;
+  const showImage = Boolean(resolvedSrc) && !failed;
 
   return (
     <div
       className={`relative overflow-hidden rounded-full border border-border bg-surface shadow-sm ${sizeClassName}`}
     >
-      {hasImage && (
+      {showImage && (
         <img
           src={resolvedSrc}
           alt={alt}
-          className={`h-full w-full object-cover transition-opacity duration-300 ${
-            showImage ? 'opacity-100' : 'opacity-0'
-          }`}
-          onLoad={() => setStatus('loaded')}
-          onError={() => setStatus('error')}
+          className="h-full w-full object-cover"
+          onError={() => setFailed(true)}
         />
       )}
       {!showImage && (
