@@ -3,11 +3,11 @@ import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { profile } from '@/lib/profile';
 
 export const metadata: Metadata = {
-  title: 'Yousef Hindi | Full-Stack Engineer',
-  description:
-    'Full-Stack Engineer building scalable, user-focused products. Problem → solution storytelling with proof of impact.',
+  title: `${profile.name} | Full-Stack Engineer`,
+  description: profile.summary,
   icons: { icon: '/favicon.svg' },
 };
 
